@@ -16,7 +16,7 @@ class Request(models.Model):
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     timestamp = models.DateTimeField(auto_now_add=True)#нельзя редактировать вручную
-    status = models.CharField(choices=STATUS, default=ON_PENDING)
+    status = models.CharField(max_length=30, choices=STATUS, default=ON_PENDING)
     description = models.TextField()
 
 
@@ -32,6 +32,6 @@ class Profile(models.Model):
     name = models.CharField(max_length=20)
     surname = models.CharField(max_length=20)
     username = models.CharField(max_length=20)
-    email = models.CharField()
+    email = models.CharField(max_length=30)
     admin_status = models.BooleanField()
 
